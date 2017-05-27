@@ -1,8 +1,9 @@
+from os import system
 from flask import Flask, render_template, request
 from app import config_development, config_production
 
 # ENVIRONMENT is 'development' or 'production'
-ENVIRONMENT = 'development'
+ENVIRONMENT = 'production'
 
 app = Flask(__name__)
 
@@ -25,14 +26,8 @@ def remote_controller_light():
 @app.route('/remote_controller/light', methods=['POST'])
 def remote_controller_light_ajax():
     b = request.form['b']
-    if b == 'brightest':
-        pass
-    elif b == 'darker':
-        pass
-    elif b == 'brighter':
-        pass
-    elif b == 'out':
-        pass
+
+    system('irsend SEND_ONCE light.conf ' + b)
 
     # 何も返さない
     return b
