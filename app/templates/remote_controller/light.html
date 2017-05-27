@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block css %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/light.css') }}">
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid">
+    <h1>リモコン</h1>
+    <h2>蛍光灯</h2>
+
+    <button id="brightest" type="button" class="btn btn-primary btn-lg btn-block">全灯</button>
+    <div class="row">
+      <div class="col-xs-6">
+        <button id="darker" type="button" class="btn btn-primary btn-lg btn-block">暗く</button>
+      </div>
+      <div class="col-xs-6">
+        <button id="brighter" type="button" class="btn btn-primary btn-lg btn-block">明るく</button>
+      </div>
+    </div>
+    <button id="out" type="button" class="btn btn-primary btn-lg btn-block">消灯</button>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{{ url_for('static', filename='js/light.js') }}"></script>
+{% endblock %}
